@@ -41,6 +41,33 @@ fi
 cp -R _install/bin/rRTSPServer $SD_CARD_OUTPUT
 echo "Grabber and RTSPServer compiled, creating payload for SD card"
 
+
+mkdir $SD_CARD_OUTPUT/bin
+# Get busybox binary
+cd $OUTPUT_DIR
+cd src/busybox
+./cleanup.busybox
+./download.busybox
+cp busybox $SD_CARD_OUTPUT/bin/busybox-full
+
+# Compile ipc_cmd
+source /toolchains/sdk/activate # idk if this is needed again
+cd $OUTPUT_DIR
+cd src/ipc_cmd
+./init.ipc_cmd
+./compile.ipc_cmd
+cp -R _install/bin/* $SD_CARD_OUTPUT/bin
+
+# Compile tinyalsa
+source /toolchains/sdk/activate # idk if this is needed again
+cd $OUTPUT_DIR
+cd src/tinyalsa
+./cleanup.tinyalsa
+./init.tinyalsa
+./compile.tinyalsa
+cp -R _install/lib/* $SD_CARD_OUTPUT/lib
+cp -R _install/bin/* $SD_CARD_OUTPUT/bin
+
 # Move to SD payload folder
 cd $SD_CARD_PAYLOAD
 #rm -rf Factory

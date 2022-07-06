@@ -1,4 +1,5 @@
 export LD_LIBRARY_PATH=/lib:/home/lib:/home/rt/lib:/home/app/locallib:/var/tmp/sd/lib
+export PATH=/var/tmp/sd/bin:$PATH
 
 # Check if telnet is running (older firmware already has it enabled)
 ps | grep -v grep | grep telnetd > /dev/null
@@ -42,5 +43,7 @@ if test -f "/tmp/sd/invert_adc"; then
 else
     ./stream &
 fi
+
+busybox-full httpd -p 8080 -h /var/tmp/sd/www -c /var/tmp/sd/httpd.conf
 ./rRTSPServer -d >/var/tmp/rtspServerLog 2>&1
 

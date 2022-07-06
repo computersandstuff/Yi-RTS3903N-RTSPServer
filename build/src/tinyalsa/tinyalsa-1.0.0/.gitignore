@@ -1,0 +1,11 @@
+doxygen/html
+doxygen/man
+
+*.o
+*.so
+*.a
+utils/tinyplay
+utils/tinycap
+utils/tinymix
+utils/tinypcminfo
+

@@ -29,5 +29,5 @@ kill_cloud
 
 # Allow PTZ to finish its cyle
 sleep 30s
-killall dispatch
+# killall dispatch
 killall init.sh
