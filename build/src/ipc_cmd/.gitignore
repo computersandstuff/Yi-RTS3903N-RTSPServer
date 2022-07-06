@@ -3,3 +3,6 @@ _install/
 ipc_cmd/ipc_cmd
 ipc_cmd/ipc_multiplexer
 ipc_cmd/ipc_read
+ipc_cmd/ipc_cmd.o
+ipc_cmd/ipc_multiplexer.o
+ipc_cmd/ipc_read.o
